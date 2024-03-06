@@ -1,13 +1,11 @@
-FROM centos:7
-
-MAINTAINER marcus.ottosson@mindbender.com
+FROM ubuntu:22.04
 
 # Install dependencies for Deadline
-RUN yum -y install \
-    redhat-lsb \
-    libX11 \
-    libXext \
-    mesa-libGL
+RUN apt-get update && apt-get install -y \
+    lsb-release \
+    libx11-dev \
+    libxext-dev \
+    mesa-utils
 
 # Copy over the installer.
 RUN mkdir /tmp/thinkboxsetup/
